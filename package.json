@@ -1,0 +1,19 @@
+{
+  "name": "demo-alpine-oak",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Alpine & Oak Outfitters (fictional) — a storefront whose pricing module double-applies coupons, patched live by Sarcio through a state-preserving module patch.",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@sarcio/build-core": "^0.1.2",
+    "@sarcio/hmr-runtime": "^0.1.2",
+    "esbuild": "^0.25.12"
+  }
+}

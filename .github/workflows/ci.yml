@@ -1,0 +1,24 @@
+# Pull requests — including the ones Sarcio opens with a permanent fix — must
+# still build the module registry, or the fix would ship a graph that can't load.
+name: ci
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install (private @sarcio packages)
+        run: |
+          # Gate inside bash: a step-level `if:` cannot read secrets.
+          if [ -z "$SARCIO_NPM_TOKEN" ]; then echo "SARCIO_NPM_TOKEN unset — skipping build"; exit 0; fi
+          printf '//registry.npmjs.org/:_authToken=%s\n' "$SARCIO_NPM_TOKEN" > .npmrc
+          npm install
+          node build.mjs
+          node --check server.mjs
+        env:
+          SARCIO_NPM_TOKEN: ${{ secrets.SARCIO_NPM_TOKEN }}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alpine & Oak Outfitters — checkout</title>
+    <link rel="stylesheet" href="shop.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site">
+        <div class="logo"><a href="./">Alpine <span class="amp">&amp;</span> Oak</a></div>
+        <div class="crumb">Free returns · 90 days</div>
+      </header>
+
+      <div class="kicker">Outfitters since 1987 · Module patch</div>
+      <h1>Checkout</h1>
+      <p class="lede">
+        <b>The seeded bug:</b> <code>pricing.js</code> applies every coupon
+        against the subtotal <em>twice</em> — try <code>SAVE10</code> and watch
+        a 10% coupon take 20% off. The fix is replacement code, hot-swapped
+        into this running page by a signed module patch. Your cart is state in
+        a different module: it survives the swap.
+      </p>
+
+      <div class="panel">
+        <h2>Your cart</h2>
+        <p class="sub">Free shipping over $150. Adjust quantities, apply the coupon, and keep the page open while the patch ships.</p>
+        <label for="coupon">Coupon code</label>
+        <input id="coupon" placeholder="SAVE10" autocomplete="off" />
+        <div id="cart-root" style="margin-top: 18px"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Live module status</h2>
+        <p class="sub">
+          <span class="status-line" id="module-status">Connected — waiting for signed module patches over WebSocket.</span>
+        </p>
+      </div>
+
+      <footer class="site">
+        When the module patch is approved in the Sarcio dashboard, this page
+        verifies the Ed25519 signature and each module's sha256, swaps
+        <code>pricing.js</code> in place, and re-renders — with the cart
+        untouched. Retire the patch and the original module is restored, live.
+      </footer>
+    </div>
+    <script src="config.js"></script>
+    <script src="shop-defines.js"></script>
+    <script src="shop-host.js"></script>
+    <script>
+      // Theme the Sarcio widget to this site's brand.
+      window.__SARCIO_WIDGET_ACCENT = '#C05B3C';
+      window.__SARCIO_WIDGET_ACCENT_DARK = '#8F3F27';
+      window.__SARCIO_WIDGET_ICON_PATH = 'M14.4 6 14 4H5v17h2v-7h5.6l.4 2h7V6h-7.6Z';
+    </script>
+    <script src="widget.js"></script>
+  </body>
+</html>
