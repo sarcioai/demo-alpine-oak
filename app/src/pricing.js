@@ -8,10 +8,7 @@ export function subtotal(items) {
 export function discount(items, couponCode) {
   const rate = COUPONS[couponCode?.trim().toUpperCase() ?? ''];
   if (!rate) return 0;
-  // BUG: the discount is applied against the subtotal twice, so SAVE10
-  // takes 20% off while the receipt line still says 10%. Every order with a
-  // coupon is undercharged.
-  return subtotal(items) * rate + subtotal(items) * rate;
+  return subtotal(items) * rate;
 }
 
 export function total(items, couponCode) {
