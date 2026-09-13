@@ -8,7 +8,7 @@ repo):
 | | |
 | --- | --- |
 | Workspace | `alpine-oak` (`alpine-oak.sarcio.io`) |
-| Served at | `demos.sarcio.io/alpine-oak/` |
+| Served at | `demos.sarcio.io/alpine-oak` |
 | Patch kind | module patch — state-preserving hot swap in the browser |
 | Forge | GitHub — this repo, where the permanent-fix PR opens |
 
@@ -27,7 +27,7 @@ coupon survive the swap; retiring the patch restores the shipped module, live.
 ```bash
 npm install            # needs a token for the private @sarcio packages
 node build.mjs         # registry-build the shop + bundle its host
-SARCIO_BASE_PATH=/alpine-oak node server.mjs   # http://localhost:4010/alpine-oak/
+SARCIO_BASE_PATH=/alpine-oak node server.mjs   # http://localhost:4010/alpine-oak
 ```
 
 Ships as a container (see `Dockerfile`; the npm token is a build secret, never in

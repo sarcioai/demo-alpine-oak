@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Alpine & Oak Outfitters — checkout</title>
-    <link rel="stylesheet" href="shop.css" />
+    <link rel="stylesheet" href="%BASE_PATH%/shop.css" />
   </head>
   <body>
     <div class="wrap">
       <header class="site">
-        <div class="logo"><a href="./">Alpine <span class="amp">&amp;</span> Oak</a></div>
+        <div class="logo"><a href="%HOME_PATH%">Alpine <span class="amp">&amp;</span> Oak</a></div>
         <div class="crumb">Free returns · 90 days</div>
       </header>
 
@@ -45,15 +45,15 @@
         untouched. Retire the patch and the original module is restored, live.
       </footer>
     </div>
-    <script src="config.js"></script>
-    <script src="shop-defines.js"></script>
-    <script src="shop-host.js"></script>
+    <script src="%BASE_PATH%/config.js"></script>
+    <script src="%BASE_PATH%/shop-defines.js"></script>
+    <script src="%BASE_PATH%/shop-host.js"></script>
     <script>
       // Theme the Sarcio widget to this site's brand.
       window.__SARCIO_WIDGET_ACCENT = '#C05B3C';
       window.__SARCIO_WIDGET_ACCENT_DARK = '#8F3F27';
       window.__SARCIO_WIDGET_ICON_PATH = 'M14.4 6 14 4H5v17h2v-7h5.6l.4 2h7V6h-7.6Z';
     </script>
-    <script src="widget.js"></script>
+    <script src="%BASE_PATH%/widget.js"></script>
   </body>
 </html>
