@@ -1,11 +1,14 @@
 # Pull requests — including the ones Sarcio opens with a permanent fix — must
 # still build the module registry, or the fix would ship a graph that can't load.
-name: ci
+# The workflow name is the build Jira lists in a ticket's Development panel
+# (via GitHub for Atlassian); the job name is the check shown on the PR.
+name: 'CI: build module registry'
 on:
   pull_request:
   workflow_dispatch:
 jobs:
   build:
+    name: Build module registry
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
