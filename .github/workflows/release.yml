@@ -23,9 +23,6 @@ jobs:
       - name: Log in to GHCR
         run: echo '${{ secrets.GITHUB_TOKEN }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
 
-      - name: Render the npm credential for the build secret
-        run: printf '//registry.npmjs.org/:_authToken=%s\n' '${{ secrets.SARCIO_NPM_TOKEN }}' > "$RUNNER_TEMP/npmrc"
-
       - name: Build and push
         run: |
           tag='${{ github.ref_name }}'
@@ -33,7 +30,6 @@ jobs:
           if [ '${{ github.event_name }}' = 'workflow_dispatch' ]; then tag=dev; fi
           docker buildx build \
             --platform linux/arm64,linux/amd64 \
-            --secret id=npmrc,src="$RUNNER_TEMP/npmrc" \
             --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
             -t "ghcr.io/${{ github.repository }}:$tag" \
             --push .

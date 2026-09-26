@@ -1,12 +1,10 @@
-# Alpine & Oak Outfitters' storefront, built from THIS repo alone.
-# @sarcio/* are private packages, so the build needs a registry token:
-#   docker build --secret id=npmrc,src=$HOME/.npmrc -t demo-alpine-oak .
+# Alpine & Oak Outfitters' storefront, built from THIS repo alone:
+#   docker build -t demo-alpine-oak .
 FROM node:24-alpine AS build
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-RUN --mount=type=secret,id=npmrc,target=/root/.npmrc \
-    npm install
+RUN npm install
 
 COPY app ./app
 COPY host ./host
