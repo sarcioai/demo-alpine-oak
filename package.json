@@ -12,8 +12,8 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "@sarcio/build-core": "^0.1.2",
-    "@sarcio/hmr-runtime": "^0.1.2",
+    "@sarcio/build-core": "^0.3.0",
+    "@sarcio/hmr-runtime": "^0.3.0",
     "esbuild": "^0.25.12"
   }
 }
