@@ -1,6 +1,6 @@
 # A `v*` tag builds the image for arm64 + amd64 and pushes it to GHCR, where the
-# Sarcio demo stack pulls it. Needs one secret:
-#   SARCIO_NPM_TOKEN — a READ-ONLY npm token for the private @sarcio packages.
+# Sarcio demo stack pulls it. The @sarcio packages are public, so the build
+# needs no registry credential.
 name: release
 
 on:
