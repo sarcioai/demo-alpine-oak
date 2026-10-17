@@ -1,9 +1,9 @@
 {
   "name": "demo-alpine-oak",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Alpine & Oak Outfitters (fictional) — a storefront whose pricing module double-applies coupons, patched live by Sarcio through a state-preserving module patch.",
+  "description": "Alpine & Oak Outfitters (fictional) \u2014 an outdoor-gear store whose pricing module adds the coupon to the total instead of taking it off, fixed live by Sarcio with the cart intact.",
   "scripts": {
     "build": "node build.mjs",
     "start": "node server.mjs"

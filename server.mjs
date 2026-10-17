@@ -32,6 +32,7 @@ site.get('/config.js', (_req, res) => {
         `window.__SARCIO_WS_URL = ${JSON.stringify(WS_URL)};`,
         `window.__SARCIO_SITE_KEY = ${JSON.stringify(SITE_KEY)};`,
         `window.__SARCIO_WIDGET_SRC = ${JSON.stringify(WIDGET_SRC)};`,
+        `window.__SARCIO_BASE_PATH = ${JSON.stringify(BASE_PATH)};`,
         ''
       ].join('\n')
     );
