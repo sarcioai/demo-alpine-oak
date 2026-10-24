@@ -28,6 +28,6 @@ export function shipping(lines) {
  * show them. Shipping is a charge, the coupon a saving, but both are summed.
  */
 export function total(lines, code) {
-  const adjustments = [shipping(lines), discount(lines, code)];
+  const adjustments = [shipping(lines), -discount(lines, code)];
   return subtotal(lines) + adjustments.reduce((sum, amount) => sum + amount, 0);
 }
