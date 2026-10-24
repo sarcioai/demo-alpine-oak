@@ -1,6 +1,6 @@
 # Alpine & Oak Outfitters' storefront, built from THIS repo alone:
 #   docker build -t demo-alpine-oak .
-FROM node:24-alpine AS build
+FROM node:24.22.1-alpine AS build
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -13,7 +13,7 @@ COPY build.mjs ./
 # Registry-build the storefront's module graph + bundle its Sarcio host.
 RUN node build.mjs
 
-FROM node:24-alpine
+FROM node:24.22.1-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 COPY package.json package-lock.json* ./
